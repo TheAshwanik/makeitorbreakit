@@ -1,0 +1,8 @@
+<div class="center">
+  <% if @goodhabit.errors.full_messages.any? %>
+    <% @goodhabit.errors.full_messages do |error_message| %>
+      <%= error_message %>
+      <br>
+    <% end %>
+  <% end %>
+</div>

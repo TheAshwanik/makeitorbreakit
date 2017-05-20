@@ -1,0 +1,13 @@
+<div class="center">
+  <%= form_for @goodhabit do |f| %>
+    <%= f.text_field :goodhabit %><br>
+    <%= f.label :goodhabit, "Goal" %><br>
+    <%= f.text_field :description %><br>
+    <%= f.label :description %><br>
+    <%= f.number_field :timesperweek %><br>
+    <%= f.label :timesperweek, "Times per week" %><br>
+    <%= f.check_box :reminders %>
+    <%= f.label :reminders %><br>
+    <%= f.submit "Create Habit" %>
+  <% end %>
+</div>

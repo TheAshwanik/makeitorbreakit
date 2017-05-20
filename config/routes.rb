@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :goodhabits, except: [:index, :show]
-
+  get "/users/:id" => "users#show"
 
 end

@@ -17,6 +17,37 @@ class GoodhabitsController < ApplicationController
     end
   end
 
+  def edit
+    @goodhabit = Goodhabit.find(params[:id])
+    if @goodhabit.id == current_user.id
+    else
+      flash[:notice] = "You do not have access to that page."
+      redirect_to :back
+    end
+  end
+
+  def update
+    @goodhabit = Goodhabit.find(params[:id])
+    if @goodhabit.update(goodhabit_params)
+      flash[:notice] = "Your habit has been updated."
+      redirect_to root_path
+    else
+      flash[:alert] = "There was a problem updating your habit."
+      render :edit
+    end
+  end
+
+  def destroy
+    @goodhabit = Goodhabit.find(params[:id])
+    if @goodhabit.destroy
+      flash[:notice] = "Your habit has been deleted."
+      redirect_to root_path
+    else
+      flash[:alert] = "There was a problem deleting you habit."
+      render :edit
+    end
+  end
+
   # strong params
   private
   def goodhabit_params

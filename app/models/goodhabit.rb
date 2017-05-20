@@ -1,0 +1,2 @@
+class Goodhabit < ApplicationRecord
+end

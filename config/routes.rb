@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   get "/" => "home#index"
   root to: "home#index"
 
+  resources :goodhabits, except: [:index, :show]
+
+
 end

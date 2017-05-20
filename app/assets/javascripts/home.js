@@ -23,6 +23,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
       .addTo(controller);
     }
 
-})
+  var bigBurger = document.querySelector('.bigburger')
+  var navLink = document.querySelectorAll('.navlink')
 
-	
+  bigBurger.addEventListener( "click", function() {
+    this.classList.toggle( "change" );
+    for (var i = 0; i < navLink.length; i++){
+      if (navLink[i].style.display === 'block') {
+        navLink[i].style.display = 'none';
+      } else {
+        navLink[i].style.display = 'block';
+      }
+     }
+
+  });
+})

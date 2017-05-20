@@ -17,9 +17,15 @@
 
   <header>
     <nav>
-      <%= link_to "Home", root_path, :class => 'navlink'  %>
+      <div class="bigburger">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+      <%= link_to "make it / break it", root_path, :class => 'navlink'  %>
       <% if user_signed_in? %>
       <%= link_to "Edit Account", edit_user_registration_path, :class => 'navlink' %>
+      <%= link_to "Profile", "/users/#{(current_user.id)}", :class => 'navlink' %>
       <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navlink' %>
     <% else %>
       <%= link_to "Sign Up", new_user_registration_path, :class => 'navlink' %>

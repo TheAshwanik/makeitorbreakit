@@ -1,0 +1,10 @@
+<h1>Habits</h1>
+<div class="center">
+  <% @user.goodhabits.each do |habit| %>
+    <%= image_tag "marshmallowone.svg" %><br>
+    <%= habit.goodhabit %><br>
+    <%= habit.description %><br>
+    <%= habit.timesperweek %> times per week <br>
+    <%= link_to "Edit habit", edit_goodhabit_path(habit.id), class: "linkbutt" %><br>
+  <% end %>
+</div>

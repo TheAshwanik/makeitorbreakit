@@ -13,6 +13,7 @@ module Makeitorbreakit
     # -- all .rb files in that directory are automatically loaded.
     config.assets.enabled = true
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
-    config.assets.paths << "#{Rails.root}/app/assets/javascripts/scrollmagic/uncompressed"   
+    config.assets.paths << "#{Rails.root}/app/assets/javascripts/scrollmagic/uncompressed"
+    config.time_zone = 'Eastern Time (US & Canada)'  
   end
 end

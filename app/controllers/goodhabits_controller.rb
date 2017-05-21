@@ -21,7 +21,7 @@ class GoodhabitsController < ApplicationController
     @goodhabit = Goodhabit.find(params[:id])
     if @goodhabit.user_id == current_user.id
     else
-      flash[:notice] = "You do not have access to that page."
+      flash[:alert] = "You do not have access to that page."
       redirect_to root_path
     end
   end

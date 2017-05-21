@@ -1,10 +1,16 @@
 <h1>Habits</h1>
-<div class="center">
+<div class="habit">
   <% @user.goodhabits.each do |habit| %>
-    <%= image_tag "marshmallowone.svg" %><br>
+    <%= image_tag "marshmallowone.svg", :class => "marshmallowone" %><br>
     <%= habit.goodhabit %><br>
     <%= habit.description %><br>
     <%= habit.timesperweek %> times per week <br>
     <%= link_to "Edit habit", edit_goodhabit_path(habit.id), class: "linkbutt" %><br>
+    <h2>Check in for today</h2>
+    <%= form_for @goalcheckin, url: "/users/#{@user.id}/goodhabit/#{habit.id}" do |f| %>
+      <%= f.label :status %><br>
+      <%= f.text_area :status, cols: "50", rows: "8" %><br>
+      <%= f.submit "Check In" %><br>
+    <% end %>
   <% end %>
 </div>

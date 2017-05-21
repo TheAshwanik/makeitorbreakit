@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :goodhabits, except: [:index, :show]
-  get "/users/:id" => "users#show"
+  resources :users, only: [:index, :show]
 
+  post "/users/:user_id/goodhabit/:id" => "users#checkin"
 end

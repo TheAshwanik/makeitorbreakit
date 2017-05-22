@@ -22,13 +22,13 @@
         <div class="bar2"></div>
         <div class="bar3"></div>
       </div>
-      <%= link_to "make it / break it", root_path, :class => 'navlink', :id => 'logo' %> |
+      <%= link_to "make it / break it", root_path, :class => 'navlink', :id => 'logo' %> <span class="divider"> | </span>
       <% if user_signed_in? %>
-      <%= link_to "Edit Account", edit_user_registration_path, :class => 'navlink' %> |
-      <%= link_to "Profile", "/users/#{(current_user.id)}", :class => 'navlink' %> |
+      <%= link_to "Edit Account", edit_user_registration_path, :class => 'navlink' %> <span class="divider"> | </span>
+      <%= link_to "Profile", "/users/#{(current_user.id)}", :class => 'navlink' %> <span class="divider"> | </span>
       <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navlink', :id => 'signout' %>
     <% else %>
-      <%= link_to "Sign Up", new_user_registration_path, :class => 'navlink' %> |
+      <%= link_to "Sign Up", new_user_registration_path, :class => 'navlink' %> <span class="divider"> | </span>
       <%= link_to "Sign In", new_user_session_path, :class => 'navlink' %>
     <% end %>
     </nav>

@@ -1,0 +1,13 @@
+var newDiv = document.createElement("div")
+var checkinDiv = document.querySelector("#status")
+
+newDiv.innerHTML = "<%= j render('newstatus').chomp.html_safe %>"
+
+document.querySelector("#status").prepend(newDiv)
+
+
+
+// var status = document.getElementById('status'),
+//   statusChild = document.createElement('div');
+// statusChild.innerHTML = "<%= j (render 'newstatus').chomp.html_safe %>";
+// status.appendChild(statusChild);

@@ -13,6 +13,8 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
     @goalcheckin = Goalcheckin.new
+    @checkins = Goalcheckin.where(user_id: params[:id].to_i)
+
 
   end
 
@@ -22,8 +24,9 @@ class UsersController < ApplicationController
     @goalcheckin.goodhabit_id = params[:id].to_i
     @goalcheckin.checkintime = DateTime.now
     if @goalcheckin.save
-      flash[:notice] = "You have checked in."
-      redirect_to root_path
+      respond_to do |format|
+          format.js
+      end
     else
       flash[:alert] = "There was a problem checking in."
       redirect_to :back

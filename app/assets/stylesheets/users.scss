@@ -1,3 +1,18 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$accentcolor: #ede0ff;
+.habitheader {
+  font-size: 35px;
+  text-transform: uppercase;
+  margin: 10px;
+}
+
+hr{
+  width: 900px;
+  height: 2px;
+  border: 0;
+  background-color: $accentcolor;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}

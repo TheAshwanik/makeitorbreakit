@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "/" => "home#index"
   root to: "home#index"
 
+  resources :badhabits, except: [:index, :show]
   resources :goodhabits, except: [:index, :show]
   resources :users, only: [:index, :show]
 

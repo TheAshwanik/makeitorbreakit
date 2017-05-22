@@ -1,0 +1,13 @@
+<div class="center">
+    <%= form_for @badhabit do |f| %>
+      <%= f.text_field :badhabit %><br>
+      <%= f.label :badhabit, "Bad Habit" %><br>
+      <%= f.text_field :description %><br>
+      <%= f.label :description %><br>
+      <%= f.number_field :totalnumofdays %><br>
+      <%= f.label :totalnumofdays, "How Many Days" %><br>
+      <%= f.check_box :reminders %>
+      <%= f.label :reminders %><br>
+      <%= f.submit "Enter" %>
+    <% end %>
+</div>

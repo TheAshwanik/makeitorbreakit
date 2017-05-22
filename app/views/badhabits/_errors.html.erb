@@ -1,0 +1,8 @@
+<div class="center">
+  <% if @badhabit.errors.full_messages.any? %>
+    <% @badhabit.errors.full_messages do |error_message| %>
+      <%= error_message %>
+      <br>
+    <% end %>
+  <% end %>
+</div>

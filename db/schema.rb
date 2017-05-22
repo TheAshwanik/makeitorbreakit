@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170521170402) do
+ActiveRecord::Schema.define(version: 20170522175011) do
+
+  create_table "badhabits", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "badhabit"
+    t.string   "description"
+    t.integer  "totalnumofdays"
+    t.boolean  "reminders"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "goalcheckins", force: :cascade do |t|
     t.integer  "user_id"

@@ -1,5 +1,7 @@
-<h1>Habits</h1>
 <div class="habit">
+  <div class="habitheader">
+    Makes
+  </div>
   <% @user.goodhabits.each do |habit| %>
     <%= image_tag "marshmallowone.svg", :class => "marshmallowone" %><br>
     <%= habit.goodhabit %><br>
@@ -12,12 +14,25 @@
       <%= f.text_area :status, cols: "50", rows: "8" %><br>
       <%= f.submit "Check In" %><br>
     <% end %>
+    <h3>Check In Log</h3>
+    <div id="status">
+      <% habit.goalcheckins.reverse.each do |checkin| %>
+      <%= checkin.checkintime.strftime"%B %d, %Y %I:%M %p" %><br>
+      <%= checkin.status %><br>
+      <% end %>
+    </div>
   <% end %>
-  <h3>Check In Log</h3>
-  <div id="status">
-  <% @checkins.reverse.each do |checkin| %>
-    <%= checkin.checkintime.strftime"%B %d, %Y %I:%M %p" %><br>
-    <%= checkin.status %><br>
-  <% end %>
+</div>
+<hr>
+<div class="habit">
+  <div class="habitheader">
+    Breaks
   </div>
+  <% @user.badhabits.each do |habit| %>
+    <%= image_tag "marshmallowone.svg", :class => "marshmallowone" %><br>
+    <%= habit.badhabit %><br>
+    <%= habit.description %><br>
+    <%= habit.totalnumofdays %> days <br>
+    <%= link_to "Edit habit", edit_badhabit_path(habit.id), class: "linkbutt" %><br>
+  <% end %>
 </div>

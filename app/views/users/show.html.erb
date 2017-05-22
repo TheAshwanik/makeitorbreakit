@@ -15,7 +15,7 @@
       <%= f.submit "Check In" %><br>
     <% end %>
     <h3>Check In Log</h3>
-    <div id="status">
+    <div id="status<%=habit.id%>">
       <% habit.goalcheckins.reverse.each do |checkin| %>
       <%= checkin.checkintime.strftime"%B %d, %Y %I:%M %p" %><br>
       <%= checkin.status %><br>

@@ -1,9 +1,9 @@
 var newDiv = document.createElement("div")
-var checkinDiv = document.querySelector("#status")
+var checkinDiv = document.querySelector("#status<%=habit.id%>")
 
 newDiv.innerHTML = "<%= j render('newstatus').chomp.html_safe %>"
 
-document.querySelector("#status").prepend(newDiv)
+checkinDiv.prepend(newDiv)
 
 
 

@@ -1,3 +1,4 @@
+
 <div class="habit">
   <div class="habitheader">
     Makes
@@ -14,12 +15,20 @@
       <%= f.text_area :status, cols: "50", rows: "8" %><br>
       <%= f.submit "Check In" %><br>
     <% end %>
+    <% @checkray = Array.new %>
     <h3>Check In Log</h3>
     <div id="status<%=habit.id%>">
       <% habit.goalcheckins.reverse.each do |checkin| %>
-      <%= checkin.checkintime.strftime"%B %d, %Y %I:%M %p" %><br>
-      <%= checkin.status %><br>
+        <%= checkin.checkintime.strftime"%B %d, %Y %I:%M %p" %><br>
+        <%= checkin.status %><br>
+        <% if checkin.checkintime - 4.hours >= @today.monday %>
+          <% @checkray.push(checkin.status)%>
+        <% else %>
+        <% end %>
       <% end %>
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar" style="width:<%= @checkray.length/habit.timesperweek.to_f*100%>%"></div>
+      </div>
     </div>
   <% end %>
 </div>

@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $accentcolor: #ede0ff;
+$lightgray: #d6d6d6;
 .habitheader {
   font-size: 35px;
   text-transform: uppercase;
@@ -15,4 +16,15 @@ hr{
   background-color: $accentcolor;
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+.progress-bar-wrapper {
+  background-color: $lightgray;
+  height: 20px;
+  width: 100%;
+}
+
+.progress-bar {
+  background-color: $accentcolor;
+  height: 20px;
 }

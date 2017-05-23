@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     end
     @goalcheckin = Goalcheckin.new
     @badhabitcheckin = Badhabitcheckin.new
+    @today = Date.today
   end
 
   def checkin
@@ -49,7 +50,6 @@ class UsersController < ApplicationController
       flash[:alert] = "There was a problem checking in."
       redirect_to :back
     end
-
   end
 
 

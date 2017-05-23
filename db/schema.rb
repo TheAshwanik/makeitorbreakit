@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170522175011) do
+ActiveRecord::Schema.define(version: 20170523023145) do
+
+  create_table "badhabitcheckins", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "badhabit_id"
+    t.datetime "checkintime"
+    t.text     "status"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "badhabits", force: :cascade do |t|
     t.integer  "user_id"

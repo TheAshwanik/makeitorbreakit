@@ -1,13 +1,6 @@
 var newDiv = document.createElement("div")
-var checkinDiv = document.querySelector("#status<%=habit.id%>")
+var checkinDiv = document.querySelector("#status<%=@habitid%>")
 
 newDiv.innerHTML = "<%= j render('newstatus').chomp.html_safe %>"
 
 checkinDiv.prepend(newDiv)
-
-
-
-// var status = document.getElementById('status'),
-//   statusChild = document.createElement('div');
-// statusChild.innerHTML = "<%= j (render 'newstatus').chomp.html_safe %>";
-// status.appendChild(statusChild);

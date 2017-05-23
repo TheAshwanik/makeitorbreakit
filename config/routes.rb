@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
 
   post "/users/:user_id/goodhabit/:id" => "users#checkin"
+  post "/users/:user_id/badhabit/:id" => "users#badcheckin"
 end

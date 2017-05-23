@@ -1,0 +1,6 @@
+var brandNewDiv = document.createElement("div")
+var badcheckinDiv = document.querySelector("#badstatus<%=@habitid%>")
+
+brandNewDiv.innerHTML = "<%= j render('newbadstatus').chomp.html_safe %>"
+
+badcheckinDiv.prepend(brandNewDiv)

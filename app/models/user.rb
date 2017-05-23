@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :goodhabits
   has_many :badhabits
   has_many :goalcheckins
+  has_many :badhabitcheckins
 end

@@ -4,7 +4,8 @@ class UsersController < ApplicationController
 
 
   def index
-
+    @goodhabits = Goodhabit.all
+    @badhabits = Badhabit.all
   end
 
   def show
@@ -15,6 +16,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
     @goalcheckin = Goalcheckin.new
+    @badhabitcheckin = Badhabitcheckin.new
   end
 
   def checkin
@@ -23,6 +25,7 @@ class UsersController < ApplicationController
     @goalcheckin.goodhabit_id = params[:id].to_i
     @goalcheckin.checkintime = DateTime.now
     if @goalcheckin.save
+      @habitid = params[:id].to_i
       respond_to do |format|
           format.js
       end
@@ -32,11 +35,32 @@ class UsersController < ApplicationController
     end
   end
 
+  def badcheckin
+    @badhabitcheckin = Badhabitcheckin.new(badhabitcheckin_params)
+    @badhabitcheckin.user_id = params[:user_id].to_i
+    @badhabitcheckin.badhabit_id = params[:id].to_i
+    @badhabitcheckin.checkintime = DateTime.now
+    if @badhabitcheckin.save
+      @habitid = params[:id].to_i
+      respond_to do |format|
+          format.js
+      end
+    else
+      flash[:alert] = "There was a problem checking in."
+      redirect_to :back
+    end
+
+  end
+
 
   private
 
   def goalcheckin_params
     params.require(:goalcheckin).permit(:status)
+  end
+
+  def badhabitcheckin_params
+    params.require(:badhabitcheckin).permit(:status)
   end
 
 end

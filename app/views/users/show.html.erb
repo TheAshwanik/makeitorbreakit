@@ -85,7 +85,7 @@
     <% end %>
     <div class="centerone">
       You are at
-      <p class='percent' id="badpercent<%=habit.id%>"> <%=(@badcheckray.length/habit.totalnumofdays.to_f*100).round%>% </p>
+      <p class='percent' id="badpercent<%=habit.id%>"> <%=(@badcheckray.length/habit.totalnumofdays.to_f*100).round%>% </p>!
       <div class="progress-bar-wrapper">
         <div class="progress-bar" id="badprogress<%=habit.id%>" style="width:<%= @badcheckray.length/habit.totalnumofdays.to_f*100%>%">
         </div>

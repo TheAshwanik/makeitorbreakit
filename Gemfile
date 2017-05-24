@@ -10,6 +10,7 @@ gem 'sendgrid-ruby'
 gem 'whenever', :require => false
 
 gem "simple_calendar", "~> 2.0"
+gem "omniauth-google-oauth2"
 
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -6,8 +6,10 @@ git_source(:github) do |repo_name|
 end
 
 gem 'sendgrid-ruby'
-# for the cron job of sending automatic emails 
+# for the cron job of sending automatic emails
 gem 'whenever', :require => false
+
+gem "simple_calendar", "~> 2.0"
 
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

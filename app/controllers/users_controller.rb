@@ -67,6 +67,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def calendar
+    @goodhabit = Goodhabit.find(params[:id])
+    @checkins = @goodhabit.goalcheckins
+  end
+
 
   private
 

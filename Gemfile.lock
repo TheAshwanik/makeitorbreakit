@@ -137,6 +137,8 @@ GEM
     sendgrid-ruby (4.3.3)
       ruby_http_client (~> 3.0)
       sinatra (>= 1.4.7, < 3)
+    simple_calendar (2.2.5)
+      rails (>= 3.0)
     sinatra (2.0.0)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -189,6 +191,7 @@ DEPENDENCIES
   rails (~> 5.0.3)
   sass-rails (~> 5.0)
   sendgrid-ruby
+  simple_calendar (~> 2.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

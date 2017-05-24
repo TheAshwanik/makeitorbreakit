@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   post "/users/:user_id/goodhabit/:id" => "users#checkin"
   post "/users/:user_id/badhabit/:id" => "users#badcheckin"
+
+  get "/users/:user_id/goodhabit/:id/calendar" => "users#calendar"
 end

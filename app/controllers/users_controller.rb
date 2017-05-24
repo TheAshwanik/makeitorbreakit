@@ -27,6 +27,16 @@ class UsersController < ApplicationController
     @goalcheckin.checkintime = DateTime.now
     if @goalcheckin.save
       @habitid = params[:id].to_i
+      @habit = Goodhabit.find(params[:id].to_i)
+      @today = Date.today
+      @checkray = Array.new
+      @habit.goalcheckins.each do |checkin|
+        if checkin.checkintime - 4.hours >= @today.monday
+          @checkray.push(checkin.checkintime)
+        else
+        end
+      end
+      puts @checkray.length
       respond_to do |format|
           format.js
       end

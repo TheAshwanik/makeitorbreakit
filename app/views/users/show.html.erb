@@ -22,16 +22,22 @@
         <%= checkin.checkintime.strftime"%B %d, %Y %I:%M %p" %><br>
         <%= checkin.status %><br>
         <% if checkin.checkintime - 4.hours >= @today.monday %>
-          <% @checkray.push(checkin.status)%>
+          <% @checkray.push(checkin.checkintime)%>
         <% else %>
         <% end %>
       <% end %>
-      <div class="progress-bar-wrapper">
-        <div class="progress-bar" style="width:<%= @checkray.length/habit.timesperweek.to_f*100%>%"></div>
+      <div class="centerone">
+        You are at
+        <p class='percent' id="percent<%=habit.id%>"> <%=(@checkray.length/habit.timesperweek.to_f*100).round%>% </p> this week!
+        <div class="progress-bar-wrapper">
+          <div class="progress-bar" id="progress<%=habit.id%>" style="width:<%= @checkray.length/habit.timesperweek.to_f*100%>%">
+          </div>
+        </div>
       </div>
     </div>
   <% end %>
 </div>
+
 <hr>
 <div class="habit">
   <div class="habitheader">

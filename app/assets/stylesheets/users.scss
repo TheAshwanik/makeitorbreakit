@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $accentcolor: #ede0ff;
 $lightgray: #d6d6d6;
+$progressbar: #2bdbd8;
 .habitheader {
   font-size: 35px;
   text-transform: uppercase;
@@ -19,12 +20,22 @@ hr{
 }
 
 .progress-bar-wrapper {
-  background-color: $lightgray;
+  background-color: white;
   height: 20px;
-  width: 100%;
+  width: 500px;
+  border: 3px solid $accentcolor;
+  border-radius: 10px;
+  padding: 5px;
+  margin: auto;
 }
 
 .progress-bar {
   background-color: $accentcolor;
   height: 20px;
+  border-radius: 10px;
+
+}
+
+.percent {
+  display: inline;
 }

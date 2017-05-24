@@ -2,6 +2,7 @@ var newDiv = document.createElement("div")
 var checkinDiv = document.querySelector("#status<%=@habitid%>")
 var progressbar = document.querySelector("#progress<%=@habit.id%>")
 var percentWeek = document.querySelector("#percent<%=@habit.id%>")
+
 newDiv.innerHTML = "<%= j render('newstatus').chomp.html_safe %>"
 
 checkinDiv.prepend(newDiv)

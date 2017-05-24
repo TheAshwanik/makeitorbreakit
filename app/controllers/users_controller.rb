@@ -53,6 +53,11 @@ class UsersController < ApplicationController
     @badhabitcheckin.checkintime = DateTime.now
     if @badhabitcheckin.save
       @habitid = params[:id].to_i
+      @habit = Badhabit.find(params[:id].to_i)
+      @badcheckray = Array.new
+      @habit.badhabitcheckins.each do |checkin|
+        @badcheckray.push(checkin.checkintime)
+      end
       respond_to do |format|
           format.js
       end

@@ -1,6 +1,11 @@
 var brandNewDiv = document.createElement("div")
 var badcheckinDiv = document.querySelector("#badstatus<%=@habitid%>")
+var badProgressBar = document.querySelector("#badprogress<%=@habit.id%>")
+var percentProgress = document.querySelector("#badpercent<%=@habit.id%>")
 
 brandNewDiv.innerHTML = "<%= j render('newbadstatus').chomp.html_safe %>"
 
 badcheckinDiv.prepend(brandNewDiv)
+
+badProgressBar.style.width = '<%= @badcheckray.length/@habit.totalnumofdays.to_f*100%>%'
+percentProgress.innerHTML = '<%=(@badcheckray.length/@habit.totalnumofdays.to_f*100).round%>% '

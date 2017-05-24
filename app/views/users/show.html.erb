@@ -5,9 +5,9 @@
   </div>
   <% @user.goodhabits.each do |habit| %>
     <%= image_tag "marshmallowone.svg", :class => "marshmallowone" %><br>
-    <%= habit.goodhabit %><br>
-    <%= habit.description %><br>
-    <%= habit.timesperweek %> times per week <br>
+    Goal: <%= habit.goodhabit %><br>
+    Description: <%= habit.description %><br>
+    How Often: <%= habit.timesperweek %> times per week <br>
     <%= link_to "Edit habit", edit_goodhabit_path(habit.id), class: "linkbutt" %><br>
     <h2>Check in for today</h2>
     <%= form_for @goalcheckin, url: "/users/#{@user.id}/goodhabit/#{habit.id}", remote: true do |f| %>
@@ -18,11 +18,14 @@
     <% @checkray = Array.new %>
     <h3>Check In Log</h3>
     <div id="status<%=habit.id%>">
-      <% habit.goalcheckins.reverse.each do |checkin| %>
+      <% habit.goalcheckins.last(5).reverse.each do |checkin| %>
         <%= checkin.checkintime.strftime"%B %d, %Y %I:%M %p" %><br>
         <%= checkin.status %><br>
+      <% end %>
+    </div>
+      <% habit.goalcheckins.each do |checkin| %>
         <% if checkin.checkintime - 4.hours >= @today.monday %>
-          <% @checkray.push(checkin.checkintime)%>
+          <% @checkray.push(checkin.checkintime) %>
         <% else %>
         <% end %>
       <% end %>
@@ -34,7 +37,6 @@
           </div>
         </div>
       </div>
-    </div>
   <% end %>
 </div>
 
@@ -45,9 +47,9 @@
   </div>
   <% @user.badhabits.each do |habit| %>
     <%= image_tag "marshmallowone.svg", :class => "marshmallowone" %><br>
-    <%= habit.badhabit %><br>
-    <%= habit.description %><br>
-    <%= habit.totalnumofdays %> days <br>
+    Bad habit: <%= habit.badhabit %><br>
+    Description: <%= habit.description %><br>
+    Length: <%= habit.totalnumofdays %> days <br>
     <%= link_to "Edit habit", edit_badhabit_path(habit.id), class: "linkbutt" %><br>
     <h2>Check in for today</h2>
     <%= form_for @badhabitcheckin, url: "/users/#{@user.id}/badhabit/#{habit.id}", remote: true do |f| %>
@@ -55,12 +57,24 @@
       <%= f.text_area :status, cols: "50", rows: "8" %><br>
       <%= f.submit "Check In" %><br>
     <% end %>
+    <% @badcheckray = Array.new %>
     <h3>Check In Log</h3>
     <div id="badstatus<%=habit.id%>">
-      <% habit.badhabitcheckins.reverse.each do |checkin| %>
-      <%= checkin.checkintime.strftime"%B %d, %Y %I:%M %p" %><br>
-      <%= checkin.status %><br>
+      <% habit.badhabitcheckins.last(5).reverse.each do |checkin| %>
+        <%= checkin.checkintime.strftime"%B %d, %Y %I:%M %p" %><br>
+        <%= checkin.status %><br>
       <% end %>
+    </div>
+    <% habit.badhabitcheckins.each do |checkin| %>
+      <% @badcheckray.push(checkin.checkintime) %>
+    <% end %>
+    <div class="centerone">
+      You are at
+      <p class='percent' id="badpercent<%=habit.id%>"> <%=(@badcheckray.length/habit.totalnumofdays.to_f*100).round%>% </p>
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar" id="badprogress<%=habit.id%>" style="width:<%= @badcheckray.length/habit.totalnumofdays.to_f*100%>%">
+        </div>
+      </div>
     </div>
   <% end %>
 </div>

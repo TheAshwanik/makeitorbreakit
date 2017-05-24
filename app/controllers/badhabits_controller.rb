@@ -28,7 +28,7 @@ class BadhabitsController < ApplicationController
 
   def update
     @badhabit = Badhabit.find(params[:id].to_i)
-    if @goodhabit.update(badhabit_params)
+    if @badhabit.update(badhabit_params)
       flash[:notice] = "Your habit has been updated."
       redirect_to root_path
     else

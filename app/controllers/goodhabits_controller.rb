@@ -51,7 +51,7 @@ class GoodhabitsController < ApplicationController
   # strong params
   private
   def goodhabit_params
-    params.require(:goodhabit).permit(:goodhabit, :description, :timesperweek, :reminders)
+    params.require(:goodhabit).permit(:category, :goodhabit, :description, :timesperweek, :reminders)
   end
 
 end

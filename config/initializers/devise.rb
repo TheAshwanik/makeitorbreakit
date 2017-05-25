@@ -279,6 +279,8 @@ Devise.setup do |config|
 
   # omniAuth
 
-  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_SECRET_ID']
-  
+  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_SECRET_ID'], {
+    :scope => "email, profile, https://www.googleapis.com/auth/fitness.activity.read, https://www.googleapis.com/auth/fitness.activity.write"
+  }
+
 end

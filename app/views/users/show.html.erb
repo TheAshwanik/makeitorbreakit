@@ -1,7 +1,11 @@
-<div class="habit">
+<div class="tab">
+  <a href="#makes">Makes/</a><br>
+  <a href="#breaks">Breaks</a>
+</div>
 
+<div class="habit">
   <div class="habitheader">
-    Makes
+    <a id="makes">Makes</a>
   </div>
     <% @user.goodhabits.each do |habit| %>
     <div class="test">
@@ -14,10 +18,9 @@
       How Often: <%= habit.timesperweek %> times per week <br>
       <%= link_to "Edit habit", edit_goodhabit_path(habit.id), class: "linkbutt" %><br>
     </div>
-
   </div>
 
-    <div class="heading">Check-in for today</div>
+    <div class="heading">Check-in For Today</div>
 
     <div class="test">
       <div class="checkinform">
@@ -54,21 +57,28 @@
       </div>
       <hr>
       <% end %>
-
 </div>
 
-<hr>
+
 <div class="habit">
   <div class="habitheader">
-    Breaks
+    <a id="breaks">Breaks</a>
   </div>
   <% @user.badhabits.each do |habit| %>
+  <div class="test">
     <%= image_tag "marshmallowone.svg", :class => "marshmallowone" %><br>
-    Bad habit: <%= habit.badhabit %><br>
-    Description: <%= habit.description %><br>
-    Length: <%= habit.totalnumofdays %> days <br>
-    <%= link_to "Edit habit", edit_badhabit_path(habit.id), class: "linkbutt" %><br>
-    <h2>Check-in for today</h2>
+
+    <div class="goal">
+      Bad habit: <%= habit.badhabit %><br>
+      Description: <%= habit.description %><br>
+      Length: <%= habit.totalnumofdays %> days <br>
+      <%= link_to "Edit habit", edit_badhabit_path(habit.id), class: "linkbutt" %><br>
+    </div>
+  </div>
+
+  <div class="heading">Check-in For Today</div>
+
+  <div class="test">
     <div class="checkinform">
       <%= form_for @badhabitcheckin, url: "/users/#{@user.id}/badhabit/#{habit.id}", remote: true do |f| %>
       <%= f.label :status %><br>
@@ -77,23 +87,26 @@
       <% end %>
     </div>
     <% @badcheckray = Array.new %>
-    <h3>Check-In Log</h3>
-    <div id="badstatus<%=habit.id%>">
+    <!-- <h3>Check-In Log</h3> -->
+    <div class="status" id="badstatus<%=habit.id%>">
       <% habit.badhabitcheckins.last(5).reverse.each do |checkin| %>
-        <%= checkin.checkintime.strftime"%B %d, %Y %I:%M %p" %><br>
-        <%= checkin.status %><br>
+      <%= checkin.checkintime.strftime"%B %d, %Y %I:%M %p" %><br>
+      <%= checkin.status %><br>
       <% end %>
     </div>
-    <% habit.badhabitcheckins.each do |checkin| %>
-      <% @badcheckray.push(checkin.checkintime) %>
-    <% end %>
-    <div class="centerone">
-      You are at
-      <p class='percent' id="badpercent<%=habit.id%>"> <%=(@badcheckray.length/habit.totalnumofdays.to_f*100).round%>% </p>!
-      <div class="progress-bar-wrapper">
-        <div class="progress-bar" id="badprogress<%=habit.id%>" style="width:<%= @badcheckray.length/habit.totalnumofdays.to_f*100%>%">
-        </div>
+  </div>
+
+  <% habit.badhabitcheckins.each do |checkin| %>
+  <% @badcheckray.push(checkin.checkintime) %>
+  <% end %>
+  <div class="centerone">
+    You are at
+    <p class='percent' id="badpercent<%=habit.id%>"> <%=(@badcheckray.length/habit.totalnumofdays.to_f*100).round%>% </p>!
+    <div class="progress-bar-wrapper">
+      <div class="progress-bar" id="badprogress<%=habit.id%>" style="width:<%= @badcheckray.length/habit.totalnumofdays.to_f*100%>%">
       </div>
     </div>
+  </div>
+  <hr>
   <% end %>
 </div>

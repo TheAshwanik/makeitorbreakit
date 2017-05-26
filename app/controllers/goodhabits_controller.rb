@@ -1,6 +1,7 @@
 class GoodhabitsController < ApplicationController
   before_action :authenticate_user!
 
+
   def new
     @goodhabit = Goodhabit.new
   end
@@ -47,6 +48,24 @@ class GoodhabitsController < ApplicationController
       render :edit
     end
   end
+#
+# def googlefit_api_response
+#     url = "https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate"
+#     uri = URI(url)
+#     requesturl = Net::HTTP.post(uri)
+#     requestbody =
+#     {
+#        "aggregateBy": [{
+#          "dataTypeName": "com.google.step_count.delta",
+#          "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps"
+#       }],
+#       "bucketByTime": { "durationMillis": 86400000 },
+#       "startTimeMillis": 1495602000000,
+#       "endTimeMillis": 1495674315650
+#     }
+#     puts JSON.parse(request)
+#
+# end
 
   # strong params
   private

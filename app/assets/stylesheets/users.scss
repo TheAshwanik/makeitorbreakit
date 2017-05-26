@@ -41,12 +41,15 @@ hr{
 }
 
 .marshmallowone {
-  // float: left;
+  // box-shadow: 0 2px 11px rgba(0,0,0,0.2);
+  margin: 10px;
 }
 
 .goal {
   padding: 70px;
-  // float: right;
+  box-shadow: 0 2px 11px rgba(0,0,0,0.2);
+  background-color: $accentcolor;
+  margin: 10px;
 }
 
 .heading {
@@ -62,8 +65,15 @@ hr{
 
 .status {
    padding: 20px;
+   box-shadow: 0 2px 11px rgba(0,0,0,0.2);
+   margin: 15px;
 }
 
+.checkinform {
+  box-shadow: 0 2px 11px rgba(0,0,0,0.2);
+  padding: 25px;
+  margin: 15px;
+}
 
 
 

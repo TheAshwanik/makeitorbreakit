@@ -20,11 +20,13 @@
     <div class="heading">Check-in for today</div>
 
     <div class="test">
-      <%= form_for @goalcheckin, url: "/users/#{@user.id}/goodhabit/#{habit.id}", remote: true do |f| %>
-      <%= f.label :status %><br>
-      <%= f.text_area :status, cols: "50", rows: "8" %><br>
-      <%= f.submit "Check-In" %><br>
-      <% end %>
+      <div class="checkinform">
+        <%= form_for @goalcheckin, url: "/users/#{@user.id}/goodhabit/#{habit.id}", remote: true do |f| %>
+        <%= f.label :status %><br>
+        <%= f.text_area :status, cols: "50", rows: "8" %><br>
+        <%= f.submit "Check-In" %><br>
+        <% end %>
+      </div>
       <% @checkray = Array.new %>
       <!-- <span>Check-In Log</span><br> -->
       <div class="status" id="status<%=habit.id%>">
@@ -67,11 +69,13 @@
     Length: <%= habit.totalnumofdays %> days <br>
     <%= link_to "Edit habit", edit_badhabit_path(habit.id), class: "linkbutt" %><br>
     <h2>Check-in for today</h2>
-    <%= form_for @badhabitcheckin, url: "/users/#{@user.id}/badhabit/#{habit.id}", remote: true do |f| %>
+    <div class="checkinform">
+      <%= form_for @badhabitcheckin, url: "/users/#{@user.id}/badhabit/#{habit.id}", remote: true do |f| %>
       <%= f.label :status %><br>
       <%= f.text_area :status, cols: "50", rows: "8" %><br>
       <%= f.submit "Check-In" %><br>
-    <% end %>
+      <% end %>
+    </div>
     <% @badcheckray = Array.new %>
     <h3>Check-In Log</h3>
     <div id="badstatus<%=habit.id%>">

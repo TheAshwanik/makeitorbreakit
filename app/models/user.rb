@@ -11,14 +11,17 @@ class User < ApplicationRecord
   has_many :badhabitcheckins
 
   def self.from_omniauth(access_token)
+    accesstoken = access_token.credentials
     data = access_token.info
     user = User.where(:email => data["email"]).first
+    puts "yoooooo" + accesstoken['token'].inspect
 
     # Uncomment the section below if you want users to be created if they don't exist
     unless user
         user = User.create(
            email: data["email"],
-           password: Devise.friendly_token[0,20]
+           password: Devise.friendly_token[0,20],
+           access_token: accesstoken['token']
         )
     end
     user

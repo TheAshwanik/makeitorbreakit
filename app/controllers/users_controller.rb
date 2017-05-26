@@ -21,79 +21,30 @@ class UsersController < ApplicationController
     @goalcheckin = Goalcheckin.new
     @badhabitcheckin = Badhabitcheckin.new
     @today = Date.today
-    # url = "https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate"
+    @start = DateTime.now.beginning_of_day.strftime("%Q")
+    @end = DateTime.now.end_of_day.strftime("%Q")
     uri = URI("https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate")
-    # http = Net::HTTP.new(uri.host, uri.port)
-    # request = Net::HTTP::Post.new(uri.request_uri)
-    #
-    # response = Net::HTTP.post(uri, {
-    #   "aggregateBy": [{
-    #     "dataTypeName": "com.google.step_count.delta",
-    #     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps"
-    #     }],
-    #     "bucketByTime": { "durationMillis": 86400000 },
-    #     "startTimeMillis": 1495602000000,
-    #     "endTimeMillis": 1495674315650
-    # })
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
 
-    # #
-    #   http = Net::HTTP.new("https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate")
-    # #
-    #   request = Net::HTTP::Post.new("https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate")
-    #   request.set_form_data({
-    #     "aggregateBy": [{
-    #       "dataTypeName": "com.google.step_count.delta",
-    #       "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps"
-    #       }],
-    #       "bucketByTime": { "durationMillis": 86400000 },
-    #       "startTimeMillis": 1495602000000,
-    #       "endTimeMillis": 1495674315650
-    #   })
-    # #
-    # # #
-    #   response = http.request(request)
-    # #   # Use nokogiri, hpricot, etc to parse response.body.
-    # #
-    # #
-    # # # request.set_form_data(
-    # # # {
-    # # #   "aggregateBy": [{
-    # # #     "dataTypeName": "com.google.step_count.delta",
-    # # #     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps"
-    # # #     }],
-    # # #     "bucketByTime": { "durationMillis": 86400000 },
-    # # #     "startTimeMillis": 1495602000000,
-    # # #     "endTimeMillis": 1495674315650
-    # # # })
-    # #
-    #
-    #
-    #
+    request = Net::HTTP::Post.new(uri.path, {'Content-Type' => 'application/json',
+       "Authorization"  => "Bearer #{@user.access_token}"
+    })
+    request.body = {
+        "aggregateBy": [{
+        "dataTypeName": "com.google.step_count.delta",
+        "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps"
+        }],
+        "bucketByTime": { "durationMillis": 86400000 },
+        "startTimeMillis": @start,
+        "endTimeMillis": @end
+    }.to_json
 
-    # response = http.request(request)
-    # puts JSON.parse(response.body)
-
-    # this is the ok code that may work eventually
-    # http = Net::HTTP.new(uri.host, uri.port)
-    # http.use_ssl = true
-    #
-    # request = Net::HTTP::Post.new(uri.path, {'Content-Type' => 'application/json', "access_token" => ,
-    # "token_uri" => "https://accounts.google.com/o/oauth2/token",
-    # 'token_type' => 'Bearer',
-    # 'expires_in' => '581' })
-    # request.body = {
-    #     "aggregateBy": [{
-    #     "dataTypeName": "com.google.step_count.delta",
-    #     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps"
-    #     }],
-    #     "bucketByTime": { "durationMillis": 86400000 },
-    #     "startTimeMillis": 1495602000000,
-    #     "endTimeMillis": 1495674315650
-    # }.to_json
-    #
-    # response = http.request(request)
-    # puts @user.access_token
-    # puts JSON.parse(response.body)
+    response = http.request(request)
+    puts @user.access_token
+    puts JSON.parse(response.body)
+    @body = JSON.parse(response.body)
+    @steps = @body["bucket"][0]["dataset"][0]["point"][0]["value"][0]["intVal"]
 
 
   end

@@ -1,3 +1,4 @@
+<%= @steps %>
 <div class="tab">
   <a href="#makes">Makes/</a><br>
   <a href="#breaks">Breaks</a>
@@ -25,17 +26,17 @@
     <div class="test">
       <div class="checkinform">
         <%= form_for @goalcheckin, url: "/users/#{@user.id}/goodhabit/#{habit.id}", remote: true do |f| %>
-        <%= f.label :status %><br>
-        <%= f.text_area :status, cols: "50", rows: "8" %><br>
-        <%= f.submit "Check-In" %><br>
+          <%= f.label :status %><br>
+          <%= f.text_area :status, cols: "50", rows: "8" %><br>
+          <%= f.submit "Check-In" %><br>
         <% end %>
       </div>
       <% @checkray = Array.new %>
       <!-- <span>Check-In Log</span><br> -->
       <div class="status" id="status<%=habit.id%>">
         <% habit.goalcheckins.last(5).reverse.each do |checkin| %>
-        <%= checkin.checkintime.strftime"%B %d, %Y %I:%M %p" %><br>
-        <%= checkin.status %><br>
+          <%= checkin.checkintime.strftime"%B %d, %Y %I:%M %p" %><br>
+          <%= checkin.status %><br>
         <% end %>
       </div>
     </div>
@@ -81,23 +82,23 @@
   <div class="test">
     <div class="checkinform">
       <%= form_for @badhabitcheckin, url: "/users/#{@user.id}/badhabit/#{habit.id}", remote: true do |f| %>
-      <%= f.label :status %><br>
-      <%= f.text_area :status, cols: "50", rows: "8" %><br>
-      <%= f.submit "Check-In" %><br>
+        <%= f.label :status %><br>
+        <%= f.text_area :status, cols: "50", rows: "8" %><br>
+        <%= f.submit "Check-In" %><br>
       <% end %>
     </div>
     <% @badcheckray = Array.new %>
     <!-- <h3>Check-In Log</h3> -->
     <div class="status" id="badstatus<%=habit.id%>">
       <% habit.badhabitcheckins.last(5).reverse.each do |checkin| %>
-      <%= checkin.checkintime.strftime"%B %d, %Y %I:%M %p" %><br>
-      <%= checkin.status %><br>
+        <%= checkin.checkintime.strftime"%B %d, %Y %I:%M %p" %><br>
+        <%= checkin.status %><br>
       <% end %>
     </div>
   </div>
 
   <% habit.badhabitcheckins.each do |checkin| %>
-  <% @badcheckray.push(checkin.checkintime) %>
+    <% @badcheckray.push(checkin.checkintime) %>
   <% end %>
   <div class="centerone">
     You are at

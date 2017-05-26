@@ -3,7 +3,8 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 document.addEventListener("DOMContentLoaded", function (event) {
   var mallowOne = document.querySelector(".marshmallowone")
-
+  // Basic hybrid auth example following the pattern at:
+// https://developers.google.com/api-client-library/javascript/features/authentication#Authexample
 
 
 })

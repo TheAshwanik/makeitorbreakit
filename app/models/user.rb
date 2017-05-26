@@ -14,7 +14,7 @@ class User < ApplicationRecord
     accesstoken = access_token.credentials
     data = access_token.info
     user = User.where(:email => data["email"]).first
-    puts "yoooooo" + accesstoken['token'].inspect
+    puts "yoooooo" + access_token.inspect
 
     # Uncomment the section below if you want users to be created if they don't exist
     unless user
@@ -23,6 +23,8 @@ class User < ApplicationRecord
            password: Devise.friendly_token[0,20],
            access_token: accesstoken['token']
         )
+      else user
+        user.update(access_token: accesstoken['token'])
     end
     user
   end

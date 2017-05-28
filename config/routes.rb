@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :badhabits, except: [:index, :show]
   resources :goodhabits, except: [:index, :show]
-  resources :users, only: [:index, :show]
+  resources :users, only: [:show]
 
   post "/users/:user_id/goodhabit/:id" => "users#checkin"
   post "/users/:user_id/badhabit/:id" => "users#badcheckin"

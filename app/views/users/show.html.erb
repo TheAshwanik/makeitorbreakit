@@ -1,4 +1,8 @@
-<%= @steps %>
+<% unless @user.access_token == nil %>
+<div class="">
+  You've taken <%= @steps %> steps today!
+</div>
+<% end %>
 <div class="tab">
   <a href="#makes">Makes/</a><br>
   <a href="#breaks">Breaks</a>
@@ -10,7 +14,9 @@
   </div>
     <% @user.goodhabits.each do |habit| %>
     <div class="test">
-    <%= image_tag "marshmallowone.svg", :class => "marshmallowone" %><br>
+
+    <%= image_tag "marshmallownew.svg", :class => "marshmallowone" %><br>
+  
 
     <div class="goal">
       Goal: <%= habit.goodhabit %><br>

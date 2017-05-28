@@ -4,13 +4,6 @@ class UsersController < ApplicationController
   require 'net/http'
   require 'json'
 
-
-
-  def index
-    @goodhabits = Goodhabit.all
-    @badhabits = Badhabit.all
-  end
-
   def show
     @user = User.find(params[:id])
     if @user.id == current_user.id
@@ -21,31 +14,40 @@ class UsersController < ApplicationController
     @goalcheckin = Goalcheckin.new
     @badhabitcheckin = Badhabitcheckin.new
     @today = Date.today
-    @start = DateTime.now.beginning_of_day.strftime("%Q")
-    @end = DateTime.now.end_of_day.strftime("%Q")
-    uri = URI("https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate")
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
+    if @user.access_token == nil
 
-    request = Net::HTTP::Post.new(uri.path, {'Content-Type' => 'application/json',
-       "Authorization"  => "Bearer #{@user.access_token}"
-    })
-    request.body = {
-        "aggregateBy": [{
-        "dataTypeName": "com.google.step_count.delta",
-        "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps"
-        }],
-        "bucketByTime": { "durationMillis": 86400000 },
-        "startTimeMillis": @start,
-        "endTimeMillis": @end
-    }.to_json
+    else
+      @start = DateTime.now.beginning_of_day.strftime("%Q")
+      @end = DateTime.now.end_of_day.strftime("%Q")
+      uri = URI("https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate")
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
 
-    response = http.request(request)
-    puts @user.access_token
-    puts JSON.parse(response.body)
-    @body = JSON.parse(response.body)
-    @steps = @body["bucket"][0]["dataset"][0]["point"][0]["value"][0]["intVal"]
+      request = Net::HTTP::Post.new(uri.path, {'Content-Type' => 'application/json',
+         "Authorization"  => "Bearer #{@user.access_token}"
+      })
+      request.body = {
+          "aggregateBy": [{
+          "dataTypeName": "com.google.step_count.delta",
+          "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps"
+          }],
+          "bucketByTime": { "durationMillis": 86400000 },
+          "startTimeMillis": @start,
+          "endTimeMillis": @end
+      }.to_json
 
+      response = http.request(request)
+      puts @user.access_token
+      # puts JSON.parse(response.body)
+      @body = JSON.parse(response.body)
+      @steps = @body["bucket"][0]["dataset"][0]["point"][0]
+      puts @steps
+      if @steps == nil
+        @steps = 0
+      else
+        @steps = @body["bucket"][0]["dataset"][0]["point"][0]["value"][0]["intVal"]
+      end
+    end
 
   end
 

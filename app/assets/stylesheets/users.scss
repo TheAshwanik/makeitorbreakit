@@ -219,11 +219,30 @@ $todaycolor: #9ff9f8;
   width: 500px;
   height: 500px;
   margin: 10px;
-  background: url('marshmallowSprites2.png') left center;
+  background: url('marshmallowonfire.png') left center;
   animation: play .8s steps(5) infinite;
+  background-color: $redviolet;
+  box-shadow: 0 2px 11px rgba(0,0,0,0.2);
+  border-radius: 11px;
 }
 
 @keyframes play {
 	100% { background-position: -2503px;
+  }
+}
+
+.marshmallowneutral {
+  width: 500px;
+  height: 500px;
+  margin: 10px;
+  background: url('marshmallowneutralnew.png') left center;
+  animation: playtwo 1.6s steps(9) infinite;
+  background-color: $redviolet;
+  box-shadow: 0 2px 11px rgba(0,0,0,0.2);
+  border-radius: 11px;
+}
+
+@keyframes playtwo {
+	100% { background-position: -4505px;
   }
 }

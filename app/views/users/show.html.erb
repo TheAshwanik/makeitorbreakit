@@ -14,14 +14,18 @@
   </div>
     <% @user.goodhabits.each do |habit| %>
     <div class="test">
-    <div class="marshmallowfire">
 
-    </div>
     <% if habit.goalcheckins %>
+      <div class="marshmallowneutral">
+
+      </div>
+
     <% elsif habit.goalcheckins.last.checkintime < @today.monday %>
-      <%= image_tag "marshmallowsad.svg", :class => "marshmallowone" %><br>
+      <div class="marshmallowfire">
+
+      </div>
+
     <% else %>
-      <%= image_tag "marshmallownew.svg", :class => "marshmallowone" %><br>
     <% end %>
 
     <div class="goal">

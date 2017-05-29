@@ -4,6 +4,9 @@
 $accentcolor: #ede0ff;
 $lightgray: #d6d6d6;
 $progressbar: #2bdbd8;
+$blue: #b9f5f5;
+$redviolet: #e9a6ea;
+
 .habitheader {
   font-size: 35px;
   text-transform: uppercase;
@@ -47,6 +50,9 @@ hr{
 .marshmallowone {
   // box-shadow: 0 2px 11px rgba(0,0,0,0.2);
   margin: 10px;
+  background-color: $redviolet;
+  box-shadow: 0 2px 11px rgba(0,0,0,0.2);
+  border-radius: 11px;
 }
 
 .goal {
@@ -74,6 +80,7 @@ hr{
    margin: 15px;
    border-radius: 11px;
    min-width: 250px;
+   background-color: $redviolet;
 }
 
 .checkinform {
@@ -81,7 +88,9 @@ hr{
   padding: 25px;
   margin: 15px;
   border-radius: 11px;
+  background-color: $accentcolor;
 }
+
 .tab {
   position: fixed;
   z-index: 10;
@@ -100,6 +109,7 @@ $todaycolor: #9ff9f8;
 
 .fa:hover {
   color: $accentcolor;
+
 }
 
 .simple-calendar {
@@ -201,4 +211,19 @@ $todaycolor: #9ff9f8;
   font-size: 20px;
   text-align: center;
   color: $accentcolor;
+}
+
+
+
+.marshmallowfire {
+  width: 500px;
+  height: 500px;
+  margin: 10px;
+  background: url('marshmallowSprites2.png') left center;
+  animation: play .8s steps(5) infinite;
+}
+
+@keyframes play {
+	100% { background-position: -2503px;
+  }
 }

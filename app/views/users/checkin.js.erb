@@ -3,8 +3,8 @@ var checkinDiv = document.querySelector("#status<%=@habitid%>")
 var progressbar = document.querySelector("#progress<%=@habit.id%>")
 var percentWeek = document.querySelector("#percent<%=@habit.id%>")
 var marshmallow = document.querySelector("#marshmallow<%=@habit.id%>")
-var marshmallowFire = document.querySelector("#firemarshmallow<%=@habit.id%>")
-console.log(marshmallowFire)
+
+
 newDiv.innerHTML = "<%= j render('newstatus').chomp.html_safe %>"
 
 checkinDiv.prepend(newDiv)

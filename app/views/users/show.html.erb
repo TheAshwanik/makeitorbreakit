@@ -116,8 +116,29 @@
   </div>
   <% @user.badhabits.each do |habit| %>
   <div class="test">
-    <%= image_tag "marshmallowone.svg", :class => "marshmallowone" %><br>
+    <% @badcheckrayone = Array.new %>
+    <% habit.badhabitcheckins.each do |checkin| %>
+        <% @badcheckrayone.push(checkin.checkintime)%>
+    <% end %>
 
+    <% if habit.badhabitcheckins == [] %>
+    <div class="marshmallowneutral" id="badmarshmallow<%=habit.id%>">
+
+    </div>
+    <% elsif habit.badhabitcheckins.last.checkintime < @today.monday %>
+      <div class="marshmallowfire" id="badmarshmallow<%=habit.id%>">
+
+      </div>
+    <% elsif @badcheckrayone.length == habit.totalnumofdays %>
+      <div class="marshmallowhappy">
+
+      </div>
+
+    <% else %>
+      <div class="marshmallowneutral" id="badmarshmallow<%=habit.id%>">
+      </div>
+
+    <% end %>
     <div class="goal">
       Bad habit: <%= habit.badhabit %><br>
       Description: <%= habit.description %><br>

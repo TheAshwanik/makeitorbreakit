@@ -29,7 +29,7 @@
       <%= link_to "Edit Account", edit_user_registration_path, :class => 'navlink' %> <span class="divider"> | </span>
       <%= link_to "Profile", "/users/#{(current_user.id)}", :class => 'navlink' %> <span class="divider"> | </span>
       <div class="dropdown">
-       <div class="dropbtn">new habit</div>
+       <div class="dropbtn" id="drop">new habit</div>
        <div class="dropdown-content">
          <%= link_to "Make", new_goodhabit_path, class: "navlink" %><br>
          <%= link_to "Break", new_badhabit_path, class: "navlink" %><br>

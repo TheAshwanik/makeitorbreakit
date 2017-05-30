@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   var bigBurger = document.querySelector('.bigburger')
   var navLink = document.querySelectorAll('.navlink')
+  var drop = document.querySelector('#drop')
 
   bigBurger.addEventListener( "click", function() {
     this.classList.toggle( "change" );
@@ -34,6 +35,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
       } else {
         navLink[i].style.display = 'block';
       }
+     }
+     if (drop.style.display === 'block') {
+       drop.style.display = 'none';
+     } else {
+       drop.style.display = 'block';
      }
 
   });

@@ -19,7 +19,7 @@ h3{
 }
 
 hr{
-  width: 900px;
+  // width: 900px;
   height: 2px;
   border: 0;
   background-color: $accentcolor;
@@ -30,7 +30,7 @@ hr{
 .progress-bar-wrapper {
   background-color: white;
   height: 20px;
-  width: 800px;
+  // width: 800px;
   border: 3px solid $accentcolor;
   border-radius: 10px;
   padding: 5px;
@@ -52,14 +52,6 @@ hr{
   margin: 30px;
 }
 
-.marshmallowone {
-  // box-shadow: 0 2px 11px rgba(0,0,0,0.2);
-  margin: 10px;
-  background-color: $redviolet;
-  box-shadow: 0 2px 11px rgba(0,0,0,0.2);
-  border-radius: 11px;
-}
-
 .goal {
   padding: 70px;
   box-shadow: 0 2px 11px rgba(0,0,0,0.2);
@@ -75,9 +67,7 @@ hr{
   margin: 20px;
 }
 
-.test {
-   display: -webkit-inline-box;
-}
+
 
 .status {
    padding: 25px;
@@ -222,7 +212,7 @@ $todaycolor: #9ff9f8;
   }
 
   td {
-    padding: 6px 6px 60px 6px;
+    // padding: 6px 6px 60px 6px;
     vertical-align: top;
     width: 14%;
 
@@ -298,7 +288,7 @@ $todaycolor: #9ff9f8;
 .marshmallowfire {
   width: 500px;
   height: 400px;
-  margin: 10px;
+  // margin: 10px;
   background: url('marshmallowrevisedfire.png') left center;
   animation: play .8s steps(5) infinite;
   background-color: $redviolet;
@@ -314,7 +304,7 @@ $todaycolor: #9ff9f8;
 .marshmallowneutral {
   width: 500px;
   height: 400px;
-  margin: 10px;
+  // margin: 10px;
   background: url('marshmallowneutralthree.png') left center;
   animation: playtwo 1.2s steps(9) infinite;
   background-color: $redviolet;
@@ -330,7 +320,7 @@ $todaycolor: #9ff9f8;
 .marshmallowhappy {
   width: 500px;
   height: 400px;
-  margin: 10px;
+  // margin: 10px;
   background: url('happymarshmallow.png') left center;
   animation: playthree 2s steps(21) infinite;
   background-color: $redviolet;

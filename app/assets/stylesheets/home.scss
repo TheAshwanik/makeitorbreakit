@@ -50,7 +50,7 @@ input {
 
 textarea {
   font-family: $mainfont;
-  font-size: 20px;
+  font-size: 18px;
   margin: 10px;
   resize: none;
 }
@@ -107,6 +107,8 @@ nav {
   display: inline-block;
   padding-left: 20px;
   padding-right: 20px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   text-transform: lowercase;
   font-size: 20px;
 }
@@ -122,17 +124,20 @@ nav {
     font-size: 20px;
     border: none;
     cursor: pointer;
-    // font-family: $mainfont;
-    // text-transform: uppercase;
-    display: inline-block;
+    // display: inline-block;
 }
 
+#drop {
+  display: block;
+  text-align: center;
+}
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
     position: relative;
-    display: inline-block;
+    // display: inline-block;
 }
+
 
 
 
@@ -287,6 +292,10 @@ p {
     font-size: 40px;
   }
 
+  #drop {
+    display: none;
+  }
+
   .navlink {
     display: none;
   }
@@ -295,8 +304,14 @@ p {
     display: none;
   }
 
+
+  .dropdown-content {
+    width: 100%;
+  }
+
   #signout {
     float: none;
+    margin: 0;
   }
 
   .bigburger {
@@ -330,6 +345,49 @@ p {
     -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
     transform: rotate(45deg) translate(-8px, -8px) ;
   }
+  .test {
+     display: block;
+     text-align: center;
+  }
+  .progress-bar-wrapper {
+    width: 300px;
+  }
+  hr {
+    width: 300px;
+  }
+  .marshmallowhappy{
+    margin: auto;
+    zoom: .7;
+  }
+  .marshmallowneutral{
+    margin: auto;
+    zoom: .7;
+  }
+  .marshmallowfire{
+    margin: auto;
+    zoom: .7;
+  }
+
+  .simple-calendar{
+  max-width: 100%;
+  }
+  .simple-calendar td{
+    padding: 0px;
+  }
+  .simple-calendar table {
+    zoom: 0.7;
+  }
+  textarea {
+    max-width: 200px;
+  }
+  input[type="submit"] {
+    max-width: 200px;
+  }
+  #abouttext {
+    margin-top: 0px;
+    zoom: .4;
+  }
+
 
 }
 
@@ -337,6 +395,30 @@ p {
 
 @media (min-width:550px) {
 
+  .simple-calendar td{
+  padding: 6px 6px 60px 6px;
+  }
+  .progress-bar-wrapper {
+    width: 500px;
+  }
+  hr {
+    width: 500px;
+  }
+  .marshmallowhappy{
+    zoom: 1;
+  }
+  .marshmallowneutral{
+    zoom: 1;
+  }
+  .marshmallowfire{
+    zoom: 1;
+  }
+  textarea {
+    max-width: 400px;
+  }
+  input[type="submit"] {
+    max-width: 400px;
+  }
 
 }
 
@@ -360,9 +442,52 @@ p {
  .bigburger {
    display: none;
  }
+ .simple-calendar td{
+    padding: 6px 6px 60px 6px;
+  }
+  .simple-calendar table {
+    zoom: 1;
+  }
+
+  #abouttext {
+    margin-top: 0px;
+    zoom: .5;
+  }
+
+
+ #drop {
+     display: inline-block;
+   }
+
+  .dropdown-content {
+      min-width:  121px;
+    }
+
+ .dropbtn {
+  display: inline-block;
+  }
+
+  .dropdown {
+    display: inline-block;
+  }
+
  #signout {
    float: right;
  }
+ .simple-calendar td{
+ padding: 6px 6px 60px 6px;
+ }
+
+ .marshmallowhappy{
+   zoom: 1;
+ }
+ .marshmallowneutral{
+   zoom: 1;
+ }
+ .marshmallowfire{
+   zoom: 1;
+ }
+
 
 
 }
@@ -382,6 +507,40 @@ p {
   .navlink {
     display: inline-block;
   }
+
+  #drop {
+    display: inline-block;
+  }
+  .test {
+     display: -webkit-inline-box;
+  }
+  .progress-bar-wrapper {
+    width: 800px;
+  }
+  hr {
+    width: 900px;
+  }
+  .marshmallowhappy{
+    margin: 10px;
+    zoom: 1;
+  }
+  .marshmallowneutral{
+    margin: 10px;
+    zoom: 1;
+  }
+  .marshmallowfire{
+    margin: 10px;
+    zoom: 1;
+  }
+
+  .simple-calendar td{
+  padding: 6px 6px 60px 6px;
+  }
+  #abouttext {
+    margin-top: 50px;
+    zoom: 1;
+  }
+
 }
 
 /*larger than desktop HD*/
@@ -398,6 +557,12 @@ p {
   }
   .navlink {
     display: inline-block;
+  }
+  #drop {
+    display: inline-block;
+  }
+  .test {
+     display: -webkit-inline-box;
   }
 
 }

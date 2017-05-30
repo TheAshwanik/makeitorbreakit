@@ -2,9 +2,20 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 document.addEventListener("DOMContentLoaded", function (event) {
-  var mallowOne = document.querySelector(".marshmallowone")
-  // Basic hybrid auth example following the pattern at:
-// https://developers.google.com/api-client-library/javascript/features/authentication#Authexample
+  var about = document.getElementById("about")
+  var aboutText = document.getElementById("abouttext")
+  var close = document.getElementById("close")
+
+  aboutText.style.display = "none"
+
+  about.addEventListener("click", function () {
+    aboutText.style.display = "block"
+  })
+
+  close.addEventListener("click", function () {
+    aboutText.style.display = "none"
+  })
+
 
 
 })

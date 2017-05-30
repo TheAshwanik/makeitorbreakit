@@ -75,7 +75,7 @@ hr{
 }
 
 .status {
-   padding: 20px;
+   padding: 25px;
    box-shadow: 0 2px 11px rgba(0,0,0,0.2);
    margin: 15px;
    border-radius: 11px;
@@ -104,6 +104,49 @@ hr{
 #make:hover, #break:hover {
   font-weight: bold;
 }
+
+#about {
+  top: 130px;
+  position: fixed;
+  z-index: 10;
+  background-color: $accentcolor;
+  padding: 15px;
+  border-radius: 11px;
+  text-transform: uppercase;
+  font-size: 15px;
+  margin: 0 auto;
+}
+
+#about:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#abouttext {
+  width: 400px;
+  background-color: $accentcolor;
+  border-radius: 11px;
+  z-index: 200;
+  position: absolute;
+  font-size: 20px;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.text {
+  margin: 20px;
+}
+
+#close {
+  width: 35px;
+}
+
+#close:hover {
+  cursor: pointer;
+
+
+}
+
 // calendar css
 $todaycolor: #9ff9f8;
 
@@ -217,9 +260,9 @@ $todaycolor: #9ff9f8;
 
 .marshmallowfire {
   width: 500px;
-  height: 500px;
+  height: 400px;
   margin: 10px;
-  background: url('marshmallowonfire.png') left center;
+  background: url('marshmallowrevisedfire.png') left center;
   animation: play .8s steps(5) infinite;
   background-color: $redviolet;
   box-shadow: 0 2px 11px rgba(0,0,0,0.2);
@@ -233,10 +276,10 @@ $todaycolor: #9ff9f8;
 
 .marshmallowneutral {
   width: 500px;
-  height: 500px;
+  height: 400px;
   margin: 10px;
-  background: url('marshmallowneutralnew.png') left center;
-  animation: playtwo 1.6s steps(9) infinite;
+  background: url('marshmallowneutralthree.png') left center;
+  animation: playtwo 1.2s steps(9) infinite;
   background-color: $redviolet;
   box-shadow: 0 2px 11px rgba(0,0,0,0.2);
   border-radius: 11px;

@@ -20,6 +20,7 @@
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with Google", omniauth_authorize_path(resource_name, provider), class: "linkbutt" %><br />
+
+    <%= link_to '<i class="fa fa-google-plus-official" aria-hidden="true"></i>'.html_safe + " Sign in with Google", omniauth_authorize_path(resource_name, provider), class: "linkbutt" %><br />
   <% end -%>
 <% end -%>

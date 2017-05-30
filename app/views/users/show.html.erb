@@ -1,12 +1,28 @@
+<div class="tab">
+  <a href="#makes">Makes/</a><br>
+  <a href="#breaks">Breaks</a>
+</div>
+
+<div id="about">
+  About the <br>
+  Marshmallow
+</div>
+<div class="">
+  <div id="abouttext">
+    <div id="close">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+    <div class="text">
+      In the 1960's a psychologist named Walter Mischel conducted a study on delayed gratification and willpower. In the study children were given the choice of one marshmallow now or two marshmallows in 20 minutes.
+    </div>
+  </div>  
+</div>
+
 <% unless @user.access_token == nil %>
 <div class="">
   You've taken <%= @steps %> steps today!
 </div>
 <% end %>
-<div class="tab">
-  <a href="#makes">Makes/</a><br>
-  <a href="#breaks">Breaks</a>
-</div>
 
 <div class="habit">
   <div class="habitheader">
@@ -14,28 +30,30 @@
   </div>
     <% @user.goodhabits.each do |habit| %>
     <div class="test">
-
-    <% if habit.goalcheckins %>
+      <% if habit.goalcheckins == [] %>
       <div class="marshmallowneutral">
 
       </div>
+      <% elsif habit.goalcheckins && habit.goalcheckins.last.checkintime < @today.monday %>
+        <div class="marshmallowfire">
 
-    <% elsif habit.goalcheckins.last.checkintime < @today.monday %>
-      <div class="marshmallowfire">
+        </div>
 
+      <% else %>
+        <div class="marshmallowneutral">
+
+        </div>
+      <% end %>
+
+
+      <div class="goal">
+        Goal: <%= habit.goodhabit %><br>
+        Category: <%= habit.category %><br>
+        Description: <%= habit.description %><br>
+        How Often: <%= habit.timesperweek %> times per week <br>
+        <%= link_to "Edit habit", edit_goodhabit_path(habit.id), class: "linkbutt" %><br>
       </div>
-
-    <% else %>
-    <% end %>
-
-    <div class="goal">
-      Goal: <%= habit.goodhabit %><br>
-      Category: <%= habit.category %><br>
-      Description: <%= habit.description %><br>
-      How Often: <%= habit.timesperweek %> times per week <br>
-      <%= link_to "Edit habit", edit_goodhabit_path(habit.id), class: "linkbutt" %><br>
     </div>
-  </div>
 
     <div class="heading">Check-in For Today</div>
 
@@ -48,8 +66,8 @@
         <% end %>
       </div>
       <% @checkray = Array.new %>
-      <!-- <span>Check-In Log</span><br> -->
       <div class="status" id="status<%=habit.id%>">
+        <p>Check-In Log</p><br>
         <% habit.goalcheckins.last(5).reverse.each do |checkin| %>
           <%= checkin.checkintime.strftime"%B %d, %Y %I:%M %p" %><br>
           <%= checkin.status %><br>
@@ -104,8 +122,9 @@
       <% end %>
     </div>
     <% @badcheckray = Array.new %>
-    <!-- <h3>Check-In Log</h3> -->
+
     <div class="status" id="badstatus<%=habit.id%>">
+      <p>Check-In Log</p><br>
       <% habit.badhabitcheckins.last(5).reverse.each do |checkin| %>
         <%= checkin.checkintime.strftime"%B %d, %Y %I:%M %p" %><br>
         <%= checkin.status %><br>

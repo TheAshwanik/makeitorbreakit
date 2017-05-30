@@ -10,7 +10,7 @@ class BadhabitsController < ApplicationController
     @badhabit.user_id = current_user.id
     if @badhabit.save
       flash[:notice] = "Your habit has been made!"
-      redirect_to root_path
+      redirect_to user_path(current_user.id)
     else
       flash[:alert] = "There was a problem creating your habit."
       render :new
@@ -30,7 +30,7 @@ class BadhabitsController < ApplicationController
     @badhabit = Badhabit.find(params[:id].to_i)
     if @badhabit.update(badhabit_params)
       flash[:notice] = "Your habit has been updated."
-      redirect_to root_path
+      redirect_to user_path(current_user.id)
     else
       flash[:alert] = "There was a problem updating your habit."
       render :edit
@@ -41,7 +41,7 @@ class BadhabitsController < ApplicationController
     @badhabit = Badhabit.find(params[:id].to_i)
     if @badhabit.destroy
       flash[:notice] = "Your habit has been deleted."
-      redirect_to root_path
+      redirect_to user_path(current_user.id)
     else
       flash[:alert] = "There was a problem deleting you habit."
       render :edit

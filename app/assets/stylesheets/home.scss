@@ -4,8 +4,9 @@
 @import "fonts";
 $mainfont: 'CircularStd-Book';
 $lightgray: #d6d6d6;
-$accentcolor: #ede0ff;
+$accentcolor:#ccc6ff;
 $hovercolor: #aef9f4;
+$linkcolor: #0cfff4;
 
 html, body {
   margin: 0;
@@ -67,8 +68,8 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  border-color: $accentcolor;
-  background-color: $accentcolor;
+  border-color: $linkcolor;
+  background-color: $linkcolor;
 }
 
 
@@ -114,7 +115,7 @@ nav {
 }
 
 .navlink:hover {
-  color: $accentcolor;
+  background-color: $linkcolor;
 }
 
 .dropbtn {
@@ -161,7 +162,7 @@ nav {
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: $accentcolor;
+  background-color: $linkcolor;
   color: black;
 }
 
@@ -173,7 +174,7 @@ nav {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-    background-color: $accentcolor;
+    background-color: $linkcolor;
 }
 
 #signout {
@@ -189,33 +190,27 @@ nav {
 .linkbutt {
   text-transform: uppercase;
   border: 2px solid black;
-  padding: 10px;
+  padding: 15px;
   margin: 10px;
   display: inline-block;
   font-size: 20px;
 }
 
 .linkbutt:hover {
-  background-color: $accentcolor;
-  border-color: $accentcolor;
+  background-color: $linkcolor;
+  border-color: $linkcolor;
 }
 
-.google{
-  width: 20px;
+#googlebutt {
+  background-color: #f44336;
+  border: none;
 }
+#googlebutt:hover {
+  background-color: #f76156;
 
-.googlelink{
-  text-transform: uppercase;
-  // border: 2px solid black;
-  padding: 10px;
-  margin: 10px;
-  // display: inline-block;
-  font-size: 20px;
 }
-
-.googlelink:hover {
-  background-color: red;
-  border-color: red;
+i.fa.fa-google-plus-official:hover{
+  color: black;
 }
 
 #makebutt, #breakbutt {
@@ -228,7 +223,7 @@ nav {
 
 #makebutt:hover, #breakbutt:hover {
   text-transform: uppercase;
-  background-color: $accentcolor;
+  background-color: $linkcolor;
 }
 
 
@@ -521,15 +516,15 @@ p {
     width: 900px;
   }
   .marshmallowhappy{
-    margin: 10px;
+    margin: 15px;
     zoom: 1;
   }
   .marshmallowneutral{
-    margin: 10px;
+    margin: 15px;
     zoom: 1;
   }
   .marshmallowfire{
-    margin: 10px;
+    margin: 15px;
     zoom: 1;
   }
 

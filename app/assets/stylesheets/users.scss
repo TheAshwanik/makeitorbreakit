@@ -1,7 +1,8 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$accentcolor: #ede0ff;
+$accentcolor: #ccc6ff;
+$linkcolor: #0cfff4;
 $lightgray: #d6d6d6;
 $progressbar: #2bdbd8;
 $blue: #b9f5f5;
@@ -28,7 +29,6 @@ hr{
 }
 
 .progress-bar-wrapper {
-  background-color: white;
   height: 20px;
   // width: 800px;
   border: 3px solid $accentcolor;
@@ -56,7 +56,7 @@ hr{
   padding: 70px;
   box-shadow: 0 2px 11px rgba(0,0,0,0.2);
   background-color: $accentcolor;
-  margin: 10px;
+  margin: 15px;
   border-radius: 11px;
 }
 
@@ -75,7 +75,7 @@ hr{
    margin: 15px;
    border-radius: 11px;
    min-width: 250px;
-   background-color: $redviolet;
+   background-color: $accentcolor;
 }
 
 .checkinform {
@@ -131,7 +131,7 @@ hr{
 
 #about:hover {
   cursor: pointer;
-  font-weight: bold;
+  background-color: $linkcolor;
 }
 
 #abouttext {
@@ -158,9 +158,9 @@ hr{
   width: 35px;
 }
 
-#close:hover {
+.fa.fa-times:hover {
   cursor: pointer;
-  color: black;
+  color: $linkcolor;
   font-weight: bold;
 
 }
@@ -291,7 +291,7 @@ $todaycolor: #9ff9f8;
   // margin: 10px;
   background: url('marshmallowrevisedfire.png') left center;
   animation: play .8s steps(5) infinite;
-  background-color: $redviolet;
+  background-color: $accentcolor;
   box-shadow: 0 2px 11px rgba(0,0,0,0.2);
   border-radius: 11px;
 }
@@ -307,7 +307,7 @@ $todaycolor: #9ff9f8;
   // margin: 10px;
   background: url('marshmallowneutralthree.png') left center;
   animation: playtwo 1.2s steps(9) infinite;
-  background-color: $redviolet;
+  background-color: $accentcolor;
   box-shadow: 0 2px 11px rgba(0,0,0,0.2);
   border-radius: 11px;
 }
@@ -323,7 +323,7 @@ $todaycolor: #9ff9f8;
   // margin: 10px;
   background: url('happymarshmallow.png') left center;
   animation: playthree 2s steps(21) infinite;
-  background-color: $redviolet;
+  background-color: $accentcolor;
   box-shadow: 0 2px 11px rgba(0,0,0,0.2);
   border-radius: 11px;
 }

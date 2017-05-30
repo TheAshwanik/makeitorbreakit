@@ -2,10 +2,15 @@ var newDiv = document.createElement("div")
 var checkinDiv = document.querySelector("#status<%=@habitid%>")
 var progressbar = document.querySelector("#progress<%=@habit.id%>")
 var percentWeek = document.querySelector("#percent<%=@habit.id%>")
-
+var marshmallow = document.querySelector("#marshmallow<%=@habit.id%>")
+var marshmallowFire = document.querySelector("#firemarshmallow<%=@habit.id%>")
+console.log(marshmallowFire)
 newDiv.innerHTML = "<%= j render('newstatus').chomp.html_safe %>"
 
 checkinDiv.prepend(newDiv)
 
 progressbar.style.width = '<%= @checkray.length/@habit.timesperweek.to_f*100%>%'
 percentWeek.innerHTML = '<%=(@checkray.length/@habit.timesperweek.to_f*100).round%>%'
+marshmallow.classList.remove("marshmallowneutral")
+marshmallow.classList.remove("marshmallowfire")
+marshmallow.classList.add("marshmallowhappy")

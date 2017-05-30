@@ -1,3 +1,6 @@
+<div class="modaloverlay">
+
+</div>
 <div class="tab">
   <a href="#makes">Makes/</a><br>
   <a href="#breaks">Breaks</a>
@@ -15,7 +18,7 @@
     <div class="text">
       In the 1960's a psychologist named Walter Mischel conducted a study on delayed gratification and willpower. In the study children were given the choice of one marshmallow now or two marshmallows in 20 minutes.
     </div>
-  </div>  
+  </div>
 </div>
 
 <% unless @user.access_token == nil %>
@@ -24,23 +27,35 @@
 </div>
 <% end %>
 
+
 <div class="habit">
   <div class="habitheader">
     <a id="makes">Makes</a>
   </div>
     <% @user.goodhabits.each do |habit| %>
     <div class="test">
+      <% @checkrayone = Array.new %>
+      <% habit.goalcheckins.each do |checkin| %>
+        <% if checkin.checkintime - 4.hours >= @today.monday %>
+          <% @checkrayone.push(checkin.checkintime) %>
+          <% else %>
+          <% end %>
+      <% end %>
       <% if habit.goalcheckins == [] %>
-      <div class="marshmallowneutral">
+      <div class="marshmallowneutral" id="marshmallow<%=habit.id%>">
 
       </div>
-      <% elsif habit.goalcheckins && habit.goalcheckins.last.checkintime < @today.monday %>
-        <div class="marshmallowfire">
+      <% elsif habit.goalcheckins.last.checkintime < @today.monday %>
+        <div class="marshmallowfire" id="marshmallow<%=habit.id%>">
+
+        </div>
+      <% elsif @checkrayone.length == habit.timesperweek %>
+        <div class="marshmallowhappy">
 
         </div>
 
       <% else %>
-        <div class="marshmallowneutral">
+        <div class="marshmallowneutral" id="marshmallow<%=habit.id%>">
 
         </div>
       <% end %>
@@ -67,7 +82,7 @@
       </div>
       <% @checkray = Array.new %>
       <div class="status" id="status<%=habit.id%>">
-        <p>Check-In Log</p><br>
+
         <% habit.goalcheckins.last(5).reverse.each do |checkin| %>
           <%= checkin.checkintime.strftime"%B %d, %Y %I:%M %p" %><br>
           <%= checkin.status %><br>
@@ -124,7 +139,7 @@
     <% @badcheckray = Array.new %>
 
     <div class="status" id="badstatus<%=habit.id%>">
-      <p>Check-In Log</p><br>
+
       <% habit.badhabitcheckins.last(5).reverse.each do |checkin| %>
         <%= checkin.checkintime.strftime"%B %d, %Y %I:%M %p" %><br>
         <%= checkin.status %><br>

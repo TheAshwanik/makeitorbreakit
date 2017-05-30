@@ -16,14 +16,15 @@
       <i class="fa fa-times" aria-hidden="true"></i>
     </div>
     <div class="text">
-      In the 1960's a psychologist named Walter Mischel conducted a study on delayed gratification and willpower. In the study children were given the choice of one marshmallow now or two marshmallows in 20 minutes.
+      <h3>Why a marshmallow?</h3>
+      In the 1960's a psychologist named Walter Mischel conducted a study on delayed gratification and willpower. In the study children were given the choice of one marshmallow now or two marshmallows, but they had to wait 15 minutes. The study showed that the children who were able to wait had higher SAT scores and lower BMIs then those who couldn't wait. But the study also showed that willpower could be improved! So that is why you have a marshmallow to help you along your journey to make or break your habits. If go longer than a week without checking in your poor marshmallow will start to roast! As you check-in your marshmallow will be there to cheer you on!
     </div>
   </div>
 </div>
 
 <% unless @user.access_token == nil %>
-<div class="">
-  You've taken <%= @steps %> steps today!
+<div class="steps">
+  You've taken <br> <%= @steps %> <br> steps today!
 </div>
 <% end %>
 

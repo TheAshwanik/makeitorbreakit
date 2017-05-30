@@ -5,7 +5,12 @@ $accentcolor: #ede0ff;
 $lightgray: #d6d6d6;
 $progressbar: #2bdbd8;
 $blue: #b9f5f5;
-$redviolet: #e9a6ea;
+$redviolet: #c4fafc;
+
+h3{
+  text-align: center;
+  margin: 5px;
+}
 
 .habitheader {
   font-size: 35px;
@@ -98,7 +103,22 @@ hr{
   padding: 15px;
   border-radius: 11px;
   text-transform: uppercase;
-  font-size: 15px;
+  font-size: 18px;
+  text-align: center;
+  width: 145px;
+}
+
+.steps {
+  position: fixed;
+  z-index: 10;
+  background-color: $accentcolor;
+  padding: 15px;
+  border-radius: 11px;
+  text-transform: uppercase;
+  font-size: 20px;
+  top: 225px;
+  text-align: center;
+  width: 145px;
 }
 
 #make:hover, #break:hover {
@@ -106,15 +126,17 @@ hr{
 }
 
 #about {
-  top: 130px;
+  top: 140px;
   position: fixed;
   z-index: 10;
   background-color: $accentcolor;
   padding: 15px;
   border-radius: 11px;
   text-transform: uppercase;
-  font-size: 15px;
+  font-size: 18px;
   margin: 0 auto;
+  text-align: center;
+  width: 145px;
 }
 
 #about:hover {
@@ -123,12 +145,12 @@ hr{
 }
 
 #abouttext {
-  width: 400px;
+  width: 850px;
   background-color: $accentcolor;
   border-radius: 11px;
   z-index: 200;
   position: fixed;
-  font-size: 20px;
+  font-size: 22px;
   padding: 10px;
   left: 0;
   right: 0;
@@ -139,7 +161,7 @@ hr{
 }
 
 .text {
-  margin: 20px;
+  margin: 5px 60px 60px 60px;
 }
 
 #close {
@@ -269,7 +291,6 @@ $todaycolor: #9ff9f8;
 .caltitle {
   font-size: 20px;
   text-align: center;
-  color: $accentcolor;
 }
 
 

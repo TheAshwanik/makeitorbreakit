@@ -22,5 +22,6 @@
   <%- resource_class.omniauth_providers.each do |provider| %>
 
     <%= link_to '<i class="fa fa-google-plus-official" aria-hidden="true"></i>'.html_safe + " Sign in with Google", omniauth_authorize_path(resource_name, provider), class: "linkbutt" %><br />
+    *Sign in with Google and Google Fit to see your step count each day!
   <% end -%>
 <% end -%>

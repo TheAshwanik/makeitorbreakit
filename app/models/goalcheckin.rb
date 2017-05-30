@@ -4,4 +4,6 @@ class Goalcheckin < ApplicationRecord
   def start_time
    self.checkintime
  end
+
+
 end

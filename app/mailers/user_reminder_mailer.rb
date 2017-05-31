@@ -15,7 +15,7 @@ class UserReminderMailer < ActionMailer::Base
         from = SendGrid::Email.new(email: 'sarahrosepainting@gmail.com' )
         subject = 'Reminder'
         to = SendGrid::Email.new(email: email)
-        content = SendGrid::Content.new(type: 'text/plain', value: "Do not forget to checkin this week!")
+        content = SendGrid::Content.new(type: 'text/plain', value: "Do not forget to checkin today!")
         mail = SendGrid::Mail.new(from, subject, to, content)
         sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
 

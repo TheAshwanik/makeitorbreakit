@@ -29,10 +29,16 @@
 <% end %>
 
 
+
 <div class="habit">
   <div class="habitheader">
     <a id="makes">Makes</a>
   </div>
+  <% if @user.goodhabits == []%>
+  <div class="oops">
+    Oops! Looks like you haven't made any good habits yet!
+  </div>
+  <% else %>
     <% @user.goodhabits.each do |habit| %>
     <div class="test">
       <% @checkrayone = Array.new %>
@@ -109,12 +115,20 @@
       <hr>
       <% end %>
 </div>
+<% end %>
+
 
 
 <div class="habit">
   <div class="habitheader">
     <a id="breaks">Breaks</a>
   </div>
+  <% if @user.badhabits == [] %>
+  <div class="oops">
+    Oops! Looks like you aren't breaking any habits yet!
+  </div>
+
+  <% else %>
   <% @user.badhabits.each do |habit| %>
   <div class="test">
     <% @badcheckrayone = Array.new %>
@@ -183,3 +197,4 @@
   <hr>
   <% end %>
 </div>
+<% end %>

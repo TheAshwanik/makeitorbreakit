@@ -119,7 +119,7 @@ nav {
 }
 
 .dropbtn {
-    background-color: white;
+    
     color: black;
     padding: 16px;
     font-size: 20px;
@@ -380,7 +380,7 @@ p {
     max-width: 350px;
   }
   input[type="submit"] {
-    max-width: 200px;
+    max-width: 250px;
   }
   #abouttext {
     margin-top: 0px;
@@ -407,6 +407,18 @@ p {
   .centerone {
     margin: 0px auto;
     width: 100%;
+  }
+  input {
+    width: 300px;
+  }
+  #about {
+    display: none;
+  }
+  .steps {
+    position: inherit;
+  }
+  .tab {
+    display: none;
   }
 }
 
@@ -453,7 +465,24 @@ p {
     margin-bottom: 15px;
     zoom: 1;
   }
-
+  input {
+    width: 370px;
+  }
+  .tab{
+    width: 80px;
+    font-size: 10px;
+    display: block;
+  }
+  #about{
+    width: 80px;
+    font-size: 10px;
+    display: block;
+  }
+  .steps{
+    width: 80px;
+    font-size: 10px;
+    position: fixed;
+  }
 
 }
 
@@ -527,6 +556,21 @@ p {
  .marshmallowfire{
    zoom: 1;
  }
+ .tab{
+   width: 145px;
+   font-size: 18px;
+   display: block;
+ }
+ #about{
+   width: 145px;
+   font-size: 18px;
+   display: block;
+ }
+ .steps{
+   width: 145px;
+   font-size: 18px;
+ }
+
 
 
 

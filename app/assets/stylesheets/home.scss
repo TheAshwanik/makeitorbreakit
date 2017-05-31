@@ -353,14 +353,17 @@ p {
   .marshmallowhappy{
     margin: auto;
     margin-bottom: 15px;
+    zoom: .6;
   }
   .marshmallowneutral{
     margin: auto;
     margin-bottom: 15px;
+    zoom: .6;
   }
   .marshmallowfire{
     margin: auto;
     margin-bottom: 15px;
+    zoom: .6;
 
   }
 
@@ -386,19 +389,25 @@ p {
   .checkinform{
     margin: auto;
     margin-bottom: 15px;
+    zoom: .6;
   }
   .status{
     margin: auto;
     margin-bottom: 15px;
+    zoom: .6;
   }
   .goal{
     margin:auto;
     margin-bottom: 15px;
+    zoom: .6;
   }
   .habit{
     width: 100%;
   }
-
+  .centerone {
+    margin: 0px auto;
+    width: 100%;
+  }
 }
 
 /*larger than phablet*/
@@ -432,14 +441,17 @@ p {
   .checkinform{
     margin: auto;
     margin-bottom: 15px;
+    zoom: 1;
   }
   .status{
     margin: auto;
     margin-bottom: 15px;
+    zoom: 1;
   }
   .goal{
     margin:auto;
     margin-bottom: 15px;
+    zoom: 1;
   }
 
 
@@ -470,6 +482,11 @@ p {
   }
   .simple-calendar table {
     zoom: 1;
+  }
+
+  .centerone {
+    margin: 30px;
+
   }
 
   #abouttext {

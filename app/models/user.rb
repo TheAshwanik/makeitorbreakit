@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :omniauthable, :omniauth_providers => [:google_oauth2]
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :timeoutable
   has_many :goodhabits
   has_many :badhabits
   has_many :goalcheckins

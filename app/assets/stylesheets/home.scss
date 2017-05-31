@@ -63,7 +63,7 @@ input[type="submit"] {
   font-size: 20px;
   margin: 20px;
   padding: 10px;
-  background-color: white;
+  background-color: transparent;
 
 }
 
@@ -352,15 +352,16 @@ p {
   }
   .marshmallowhappy{
     margin: auto;
-    zoom: .7;
+    margin-bottom: 15px;
   }
   .marshmallowneutral{
     margin: auto;
-    zoom: .7;
+    margin-bottom: 15px;
   }
   .marshmallowfire{
     margin: auto;
-    zoom: .7;
+    margin-bottom: 15px;
+
   }
 
   .simple-calendar{
@@ -373,7 +374,7 @@ p {
     zoom: 0.7;
   }
   textarea {
-    max-width: 200px;
+    max-width: 350px;
   }
   input[type="submit"] {
     max-width: 200px;
@@ -382,7 +383,21 @@ p {
     margin-top: 0px;
     zoom: .4;
   }
-
+  .checkinform{
+    margin: auto;
+    margin-bottom: 15px;
+  }
+  .status{
+    margin: auto;
+    margin-bottom: 15px;
+  }
+  .goal{
+    margin:auto;
+    margin-bottom: 15px;
+  }
+  .habit{
+    width: 100%;
+  }
 
 }
 
@@ -414,6 +429,19 @@ p {
   input[type="submit"] {
     max-width: 400px;
   }
+  .checkinform{
+    margin: auto;
+    margin-bottom: 15px;
+  }
+  .status{
+    margin: auto;
+    margin-bottom: 15px;
+  }
+  .goal{
+    margin:auto;
+    margin-bottom: 15px;
+  }
+
 
 }
 
@@ -535,6 +563,17 @@ p {
     margin-top: 50px;
     zoom: 1;
   }
+
+  .checkinform{
+    margin: 15px;
+  }
+  .status{
+    margin: 15px;
+  }
+  .goal{
+    margin: 15px;
+  }
+
 
 }
 

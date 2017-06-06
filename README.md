@@ -12,7 +12,7 @@ Features:
 
 See it deployed at https://makeitorbreakit.herokuapp.com/
 
-## Technology used
+## Technology
 
 This is a Ruby on Rails application using
 * Ruby (version 2.4.0)
@@ -20,14 +20,14 @@ This is a Ruby on Rails application using
 * Scrollmagic
 * Database: SQLite 3 in development and PostgreSQL in produciton
 
-### Gems used
+### Gems
 
 * devise
 * simple calendar
 * omniauth-google-oauth2
 * sendgrid-ruby
 
-### APIs used
+### APIs
 
 * Google Oauth 2
 * Google Fit

@@ -17,7 +17,6 @@ See it deployed at https://makeitorbreakit.herokuapp.com/
 This is a Ruby on Rails application using
 * Ruby (version 2.4.0)
 * JavaScript
-* SASS
 * Scrollmagic
 * Database: SQLite 3 in development and PostgreSQL in produciton
 

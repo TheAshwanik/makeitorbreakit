@@ -100,6 +100,7 @@ hr{
   text-align: center;
   // width: 145px;
   box-shadow: 0 2px 11px rgba(0,0,0,0.2);
+  top: 80px;
 }
 
 .steps {
@@ -109,10 +110,9 @@ hr{
   padding: 15px;
   border-radius: 11px;
   text-transform: uppercase;
-  // font-size: 20px;
-  top: 245px;
+  top: 275px;
   text-align: center;
-  // width: 145px;
+
   box-shadow: 0 2px 11px rgba(0,0,0,0.2);
 }
 
@@ -121,7 +121,7 @@ hr{
 }
 
 #about {
-  top: 150px;
+  top: 180px;
   position: fixed;
   z-index: 10;
   background-color: $accentcolor;

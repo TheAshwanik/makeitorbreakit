@@ -22,7 +22,7 @@
   </div>
 </div>
 
-<% unless @user.access_token == nil %>
+<% unless @user.access_token == nil || @body["error"] %>
 <div class="steps">
   You've taken <br> <%= @steps %> <br> steps today!
 </div>

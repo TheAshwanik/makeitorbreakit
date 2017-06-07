@@ -40,12 +40,17 @@ class UsersController < ApplicationController
       puts @user.access_token
       # puts JSON.parse(response.body)
       @body = JSON.parse(response.body)
+      puts @body
+      if @body["error"]
+        
+      else
       @steps = @body["bucket"][0]["dataset"][0]["point"][0]
       puts @steps
-      if @steps == nil
+        if @steps == nil
         @steps = 0
-      else
+        else
         @steps = @body["bucket"][0]["dataset"][0]["point"][0]["value"][0]["intVal"]
+        end
       end
     end
 
